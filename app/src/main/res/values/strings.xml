@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">PC remote</string>
     <string name="button_raise_volume_name">V+</string>
+    <string name="prev">Prev</string>
+    <string name="play">Play</string>
+    <string name="next">Next</string>
+    <string name="v">V-</string>
+    <string name="up">Up</string>
+    <string name="left">Left</string>
+    <string name="ok">OK</string>
+    <string name="right">Right</string>
+    <string name="down">Down</string>
+    <string name="enable_control">enable control</string>
+    <string name="connected_to_server">connected to server</string>
 </resources>

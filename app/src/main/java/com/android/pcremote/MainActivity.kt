@@ -7,8 +7,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.net.Socket
 
 class MainActivity : AppCompatActivity() {
-    val port = 53210
-    val server = "192.168.43.201"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,11 +19,11 @@ class MainActivity : AppCompatActivity() {
             StrictMode.setThreadPolicy(policy)
 
             button_raise_volume.setOnClickListener{
-                sendCommand("XF86AudioLowerVolume")
+                sendCommand("XF86AudioRaiseVolume")
             }
 
             button_lower_volume.setOnClickListener{
-                sendCommand("XF86AudioRiseVolume")
+                sendCommand("XF86AudioLowerVolume")
             }
 
             button_next.setOnClickListener{
@@ -66,6 +64,8 @@ class MainActivity : AppCompatActivity() {
     }
     private fun sendCommand(command: String): Int {
         try {
+            val server = edit_ip_address.text.toString()
+            val port = edit_port.text.toString().toInt()
             val soc = Socket(server, port)
             val writer = soc.getOutputStream()
             writer.write(command.toByteArray())
