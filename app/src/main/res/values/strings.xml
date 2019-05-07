@@ -1,15 +1,19 @@
 <resources>
     <string name="app_name">PC remote</string>
-    <string name="button_raise_volume_name">V+</string>
-    <string name="prev">Prev</string>
-    <string name="play">Play</string>
-    <string name="next">Next</string>
-    <string name="v">V-</string>
-    <string name="up">Up</string>
-    <string name="left">Left</string>
-    <string name="ok">OK</string>
-    <string name="right">Right</string>
-    <string name="down">Down</string>
+    <string name="button_raise_volume_label">V+</string>
+    <string name="button_prev_label">Prev</string>
+    <string name="button_play_label">Play</string>
+    <string name="button_next_label">Next</string>
+    <string name="button_lower_volume_label">V-</string>
+    <string name="button_up_label">Up</string>
+    <string name="button_left_label">Left</string>
+    <string name="button_ok_label">OK</string>
+    <string name="button_right_label">Right</string>
+    <string name="button_down_label">Down</string>
     <string name="enable_control">enable control</string>
-    <string name="connected_to_server">connected to server</string>
+    <string name="connected_to_server">Connected to server</string>
+    <string name="disconnected_from_server">Disconnected from server</string>
+    <string name="button_raise_master_volume_label">MV+</string>
+    <string name="button_lower_master_volume_label">MV-</string>
+    <string name="button_k_label">K</string>
 </resources>
