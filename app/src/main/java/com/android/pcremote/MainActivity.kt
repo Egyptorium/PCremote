@@ -1,9 +1,10 @@
 package com.android.pcremote
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.StrictMode
-import android.view.Window
 import kotlinx.android.synthetic.main.activity_main.*
 import java.net.Socket
 
@@ -12,8 +13,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        var sPref : SharedPreferences
         val SDK_INT = android.os.Build.VERSION.SDK_INT
+
+        sPref = getPreferences(Context.MODE_PRIVATE)
+        edit_ip_address.setText(sPref.getString("IP","192.168.1.1"))
+        edit_port.setText(sPref.getString("PORT","53210"))
+
         if (SDK_INT > 8) {
             val policy = StrictMode.ThreadPolicy.Builder()
                 .permitAll().build()
@@ -67,8 +73,12 @@ class MainActivity : AppCompatActivity() {
                 sendCommand("5%-")
             }
 
-            button_k.setOnClickListener{
-                sendCommand("k")
+            button_space.setOnClickListener{
+                sendCommand("space")
+            }
+
+            button_tab.setOnClickListener{
+                sendCommand("Tab")
             }
 
             switch_control.setOnClickListener{
@@ -78,13 +88,18 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     edit_ip_address.isEnabled = false
                     edit_port.isEnabled = false
+                    sPref = getPreferences(Context.MODE_PRIVATE)
+                    val ed : SharedPreferences.Editor = sPref.edit()
+                    ed.putString("IP",edit_ip_address.text.toString())
+                    ed.putString("PORT",edit_port.text.toString())
+                    ed.apply()
                 }
             }
         }
 
 
     }
-    private fun sendCommand(command: String): Int {
+    private fun sendCommand(command: String){
         try {
             val server = edit_ip_address.text.toString()
             val port = edit_port.text.toString().toInt()
@@ -94,10 +109,9 @@ class MainActivity : AppCompatActivity() {
             writer.flush()
             soc.close()
             this.text_status.setText(R.string.connected_to_server)
-            return 0
         } catch (e: Exception) {
             this.text_status.setText(R.string.disconnected_from_server)
-            return -1
+
         }
 
     }

@@ -15,5 +15,9 @@
     <string name="disconnected_from_server">Disconnected from server</string>
     <string name="button_raise_master_volume_label">MV+</string>
     <string name="button_lower_master_volume_label">MV-</string>
-    <string name="button_k_label">K</string>
+    <string name="button_space_label">Space</string>
+    <string name="port_hint">port</string>
+    <string name="ip_address_hint">ip address</string>
+    <string name="button_tab_label">Tab</string>
+
 </resources>
